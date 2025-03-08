@@ -1,0 +1,25 @@
+name: window-latest
+on: [push]
+
+jobs:
+  shell-cmd-job:
+    runs-on: windows-latest
+    steps:
+      - name: bash shell 확인
+        shell: bash
+        run: |
+          uname -a
+      - name: power shell 확인
+        shell: pwsh
+        run: |
+          Get-ComputerInfo
+      - name: python version 확인
+        shell: python
+        run: |
+          import sys
+          print(sys.version)
+      - name: Node.js - Version Information
+        shell: node {0}
+        run: |
+          console.log(process.version)
+
